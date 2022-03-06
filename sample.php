@@ -16,14 +16,14 @@
 </form>
 </div>
 <?php
-$con=mysqli_connect("localhost","20mca052","2765","20mca052");
+$con=mysqli_connect("localhost","root","","sample");
 if(isset($_POST["submit"]))
 {
 if($con)
 {
 echo $name=$_POST["name"];
 
-$qry="INSERT INTO student_name(name) VALUES ('$name')";
+$qry="INSERT INTO studentname(name) VALUES ('$name')";
 
 if(mysqli_query($con, $qry))
 {
@@ -34,7 +34,7 @@ echo "Data inserted successfully<br>";
 if(isset($_POST["search"]))
 {
 $id=$_POST["search_id"];
-$qry="select*from student_name where id='$id'";
+$qry="select*from studentname where id='$id'";
 $data=mysqli_query($con, $qry);
 
 ?>
@@ -58,7 +58,7 @@ $res=mysqli_fetch_array($data);
 }
 if(isset($_POST["view"]))
 {
-$qry="select*from student_name";
+$qry="select*from studentname";
 $data=mysqli_query($con, $qry);
 ?>
 <h1 style="text-align:center"><u>STUDENT DETAILS</u></h1>
